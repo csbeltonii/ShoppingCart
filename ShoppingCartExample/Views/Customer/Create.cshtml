@@ -1,0 +1,13 @@
+﻿@model CreateCustomerViewModel
+
+<div class="container">
+    <h2>New Customer</h2>
+    <form method="post" class="m-1 p-1" asp-controller="Customer" asp-action="Create">
+        @Html.AntiForgeryToken()
+        <div class="input-group">
+            <label class="form-label">Customer Name</label>
+            <input class="form-control" type="text" asp-for="CustomerName"/>
+        </div>
+        <button type="submit" class="btn btn-sm btn-primary">Create</button>
+    </form>
+</div>

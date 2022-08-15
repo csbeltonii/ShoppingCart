@@ -1,0 +1,56 @@
+﻿@model CustomerListViewModel
+
+@{
+}
+
+<div class="container">
+    <h2>Customers</h2>
+    <div class="m-1 p-1">
+        <a class="btn btn-sm btn-primary" asp-controller="Customer" asp-action="Create">New</a>
+    </div>
+    <div class="m-1 p-1">
+        <table class="table table-sm table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Time Created</th>
+                <th>Last Modified</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (Model.Customers.Any())
+            {
+                @foreach (var customer in Model.Customers)
+                {
+                    <tr>
+                        <th hidden="hidden">@customer.CustomerId</th>
+                        <th>@customer.CustomerName</th>
+                        <th>@customer.TimeCreated</th>
+                        <th>@customer.LastModified</th>
+                        <th><a class="btn btn-sm btn-primary"
+                               asp-controller="Customer"
+                               asp-action="Edit"
+                               asp-route-customerId="@customer.CustomerId">
+                            Edit
+                        </a></th>
+                        <th><a class="btn btn-sm btn-primary"
+                               asp-controller="Order"
+                               asp-action="Create"
+                               asp-route-customerId="@customer.CustomerId">
+                            Start New Order
+                        </a></th>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <th colspan="3" class="text-center">No customers are available.</th>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

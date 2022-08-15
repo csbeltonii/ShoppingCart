@@ -1,0 +1,35 @@
+﻿@model CustomerViewModel
+
+@{
+}
+
+<div class="container">
+    <h2>@Model.CustomerName</h2>
+    <form method="post" class="m-1 p-1 col-6" asp-controller="Customer" asp-action="Edit">
+        <div class="input-group-sm p-1">
+            <label class="form-label"
+                   for="CustomerId">
+                Identifier:
+            </label>
+            <input readonly="readonly" 
+                   class="form-control" 
+                   asp-for="CustomerId" 
+                   id="CustomerId"/>
+        </div>
+        <div class="input-group-sm p-1">
+            <label class="form-label" for="CustomerName">Customer Name:</label>
+            <input id="CustomerName" type="text" class="form-control" asp-for="CustomerName"/>
+        </div>
+        <div class="input-group-sm p-1">
+            <label class="form-label" for="TimeCreated">Created:</label>
+            <input id="TimeCreated" type="text" readonly="readonly" class="form-control" asp-for="TimeCreated" />
+        </div>
+        <div class="input-group-sm p-1">
+            <label class="form-label" for="LastModified">Last Modified:</label>
+            <input id="LastModified" type="text" readonly="readonly" class="form-control" asp-for="LastModified"/>
+        </div>
+        <div class="m-1 p-1 text-end">
+            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+        </div>
+    </form>
+</div>

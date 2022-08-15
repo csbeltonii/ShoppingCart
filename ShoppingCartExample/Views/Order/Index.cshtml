@@ -1,0 +1,38 @@
+﻿@model OrderListViewModel
+
+@{
+}
+
+<div class="container">
+    <h2>Orders</h2>
+    <div class="m-1 p-1">
+        <table class="table table-sm table-hover">
+            <thead>
+            <tr>
+                <th>Order Id</th>
+                <th>Customer Name</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            if (@Model.Orders.Any())
+            {
+            @foreach (var order in @Model.Orders)
+            {
+                <tr>
+                    <td>@order.OrderId</td>
+                    <td>@order.CustomerName</td>
+                    <td>@order.Total</td>
+                </tr>
+            }
+            }
+            else
+            {
+            <tr>
+                <td colspan="3" class="text-center">There are no orders available.</td>
+            </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
